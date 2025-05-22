@@ -4,7 +4,7 @@ version: 0.2
 env:
   variables:
     # ECR URI where Docker image will be pushed
-    IMAGE_URI: "332874905523.dkr.ecr.ap-south-1.amazonaws.com/eks-devops"
+    IMAGE_URI: "561404573839.dkr.ecr.ap-south-1.amazonaws.com/eks-devops"
   exported-variables:
     # Variables that will be shared with downstream phases or pipelines
     - IMAGE_URI
@@ -23,7 +23,7 @@ phases:
       - export IMAGE_TAG
       # Authenticate Docker with ECR using AWS CLI
       - echo "Logging into Amazon ECR at $IMAGE_URI..."
-      - aws ecr get-login-password | docker login --username AWS --password-stdin $IMAGE_URI
+      - aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin $IMAGE_URI
 
   build:
     commands:
