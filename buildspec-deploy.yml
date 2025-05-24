@@ -41,6 +41,7 @@ phases:
       - export AWS_ACCESS_KEY_ID=$(echo $CREDENTIALS | jq -r '.Credentials.AccessKeyId')
       - export AWS_SECRET_ACCESS_KEY=$(echo $CREDENTIALS | jq -r '.Credentials.SecretAccessKey')
       - export AWS_SESSION_TOKEN=$(echo $CREDENTIALS | jq -r '.Credentials.SessionToken')
+      - export AWS_REGION=ap-south-1
       # Setup kubeconfig to interact with the EKS cluster
       - echo "Updating kubeconfig with EKS cluster credentials..."
       - aws eks update-kubeconfig --name $EKS_CLUSTER_NAME --region $AWS_REGION --role-arn $EKS_KUBECTL_ROLE_ARN
