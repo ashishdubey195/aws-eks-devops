@@ -48,7 +48,7 @@ phases:
 
       # Deploy application manifests to EKS
       - echo "Applying Kubernetes manifests..."
-      - kubectl apply -f github-files/kube-manifests/01-DEVOPS-Nginx-Deployment.yml
+      - kubectl apply -f github-files/kube-manifests/
       # Wait for deployment rollout to complete
       - echo "Waiting for deployment rollout to complete..."
       - kubectl rollout status deployment/eks-devops-deployment --timeout=180s
