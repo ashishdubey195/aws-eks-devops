@@ -7,6 +7,7 @@ env:
     EKS_CLUSTER_NAME: "eksdemo1"
     # IAM Role ARN used to assume access to EKS for kubectl
     EKS_KUBECTL_ROLE_ARN: "arn:aws:iam::561404573839:role/EksCodeBuildKubectlRole"
+    AWS_REGION=ap-south-1
 
 phases:
   install:
@@ -42,7 +43,8 @@ phases:
       - export AWS_SESSION_TOKEN=$(echo $CREDENTIALS | jq -r '.Credentials.SessionToken')
       # Setup kubeconfig to interact with the EKS cluster
       - echo "Updating kubeconfig with EKS cluster credentials..."
-      - aws eks update-kubeconfig --name $EKS_CLUSTER_NAME
+      - aws eks update-kubeconfig --name $EKS_CLUSTER_NAME --region $AWS_REGION --role-arn $EKS_KUBECTL_ROLE_ARN
+
       # Deploy application manifests to EKS
       - echo "Applying Kubernetes manifests..."
       - kubectl apply -f github-files/kube-manifests/01-DEVOPS-Nginx-Deployment.yml
