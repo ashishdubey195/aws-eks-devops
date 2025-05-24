@@ -8,7 +8,6 @@ env:
     # IAM Role ARN used to assume access to EKS for kubectl
     EKS_KUBECTL_ROLE_ARN: "arn:aws:iam::561404573839:role/EksCodeBuildKubectlRole"
     AWS_REGION=ap-south-1
-
 phases:
   install:
     commands:
