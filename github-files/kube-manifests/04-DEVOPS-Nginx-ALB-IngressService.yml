@@ -5,6 +5,7 @@ metadata:
   name: ingress-externaldns-demo
   annotations:
     # Load Balancer Name
+    kubernetes.io/ingress.class: alb
     alb.ingress.kubernetes.io/load-balancer-name: externaldns-ingress
     # Ingress Core Settings
     alb.ingress.kubernetes.io/scheme: internet-facing
