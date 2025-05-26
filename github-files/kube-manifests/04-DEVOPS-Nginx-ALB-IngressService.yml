@@ -21,6 +21,7 @@ metadata:
     alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS":443}, {"HTTP":80}]'
     alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:ap-south-1:561404573839:certificate/cf869363-7f4f-41df-9dea-25af2bd57dc9
     alb.ingress.kubernetes.io/ssl-redirect: '443'
+    alb.ingress.kubernetes.io/target-type: instance
     # External DNS
     external-dns.alpha.kubernetes.io/hostname: eksdevops1.popto.store, eksdevops2.popto.store
 spec:
